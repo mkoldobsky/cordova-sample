@@ -24,47 +24,48 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
     })
 
     // the pet tab has its own child nav-view and history
-    .state('tab.pet-index', {
-      url: '/pets',
+    .state('tab.accel', {
+      url: '/accel',
       views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-index.html',
-          controller: 'PetIndexCtrl'
+        'accel-tab': {
+          templateUrl: 'templates/accel.html',
+          controller: 'AccelCtrl'
         }
       }
     })
 
-    .state('tab.pet-detail', {
-      url: '/pet/:petId',
+    .state('tab.compass', {
+      url: '/compass',
       views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-detail.html',
-          controller: 'PetDetailCtrl'
+        'compass-tab': {
+          templateUrl: 'templates/compass.html',
+          controller: 'CompassCtrl'
         }
       }
     })
 
-    .state('tab.adopt', {
-      url: '/adopt',
-      views: {
-        'adopt-tab': {
-          templateUrl: 'templates/adopt.html'
-        }
-      }
-    })
-
+  
     .state('tab.about', {
       url: '/about',
       views: {
         'about-tab': {
-          templateUrl: 'templates/about.html',
+          templateUrl: 'templates/about.html'
+        }
+      }
+    })
+
+     .state('tab.camera', {
+      url: '/camera',
+      views: {
+        'camera-tab': {
+          templateUrl: 'templates/camera.html',
           controller: 'CameraCtrl'
         }
       }
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/pets');
+  $urlRouterProvider.otherwise('/tab/accel');
 
 });
 
