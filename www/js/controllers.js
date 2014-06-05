@@ -1,10 +1,24 @@
 angular.module('starter.controllers', [])
 
 
-// A simple controller that fetches a list of data from a service
-.controller('AccelCtrl', function($scope, PetService) {
+.controller('AccelCtrl', function($scope, $timeout) {
   // "Pets" is a service returning mock data (services.js)
-  $scope.pets = PetService.all();
+  //$scope.pets = PetService.all();
+   ionic.Platform.ready(function() {
+    var device = ionic.Platform.device();
+    $timeout(getAccelData(), 500);
+  
+});
+   var getAccelData = function(){
+     navigator.accelerometer.getCurrentAcceleration(function(accel){
+    $scope.accel.x = accel.x;
+    $scope.accel.y = accel.y;
+    $scope.accel.z = accel.z;
+    $scope.accel.timestamp = accel.timestamp; 
+    alert($scope.accel);
+  }, onError);
+    $timeout(getAccelData(), 500);
+   };
 })
 
 
