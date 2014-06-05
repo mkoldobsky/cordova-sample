@@ -1,6 +1,6 @@
-ionic-angular-cordova-seed
+Cordova-sample
 ==========================
 
-The perfect starting point for an Ionic project.
+Basado en Ionic, AngularJS.
 
 - [Ionic Tutorials](http://ionicframework.com/tutorials/)
