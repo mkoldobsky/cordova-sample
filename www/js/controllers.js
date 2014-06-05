@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
 .controller('CameraCtrl', function($scope){
  ionic.Platform.ready(function() {
     var device = ionic.Platform.device();
-    alert(device.platform);
+    
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
 
@@ -26,7 +26,7 @@ angular.module('starter.controllers', [])
             $scope.capturePhoto = function () {
       
       // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(function(){}, function(){}, { quality: 50,
+      navigator.camera.getPicture(function(imageData){$scope.image.small = "data:image/jpeg;base64," + imageData;}, function(){}, { quality: 50,
         destinationType: destinationType.DATA_URL });
     }
 
