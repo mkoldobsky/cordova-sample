@@ -4,23 +4,11 @@
   The 'pets' data comes from its $scope within PetIndexCtrl (controller.js)
 -->
 <ion-view title="Accelerometer">
-  <ion-content>
+  <ion-content padding="true">
 
-    <ion-list>
+   
 
-
-      <ion-item ng-repeat="pet in pets" type="item-text-wrap" href="#/tab/pet/{{pet.id}}">
-        <h3>{{pet.title}}</h3>
-        <p>{{pet.description}}</p>
-      </ion-item>
-      
-    </ion-list>
-
-<div>
-  <h3>X {{accel.x}}</h3>
-  <h3>Y {{accel.y}}</h3>
-  <h3>Z {{accel.z}}</h3>
-  <h3>TimeStamp {{accel.timeStamp|datetime}}</h3>
-</div>
+ <button ng-click="getAccel()">Get Accel</button> <br>
+ 
   </ion-content>
 </ion-view>

@@ -1,12 +1,14 @@
 angular.module('starter.controllers', [])
 
 
-.controller('AccelCtrl', function($scope, $timeout) {
-  // "Pets" is a service returning mock data (services.js)
-  //$scope.pets = PetService.all();
+.controller('AccelCtrl', function($scope, accelerometer) {
    ionic.Platform.ready(function() {
     var device = ionic.Platform.device();
-    $timeout(getAccelData(), 500);
+    $scope.getAccel = function(){
+    
+    accelerometer.getCurrentAcceleration(function(accel){alert('x' + accel.x + '\n' + 'y ' + accel.y + '\n' + 'z ' + accel.z + '\n' + accel.timestamp);}, function(error){alert(error);})  
+  };
+    
   
 });
    var getAccelData = function(){
@@ -16,7 +18,9 @@ angular.module('starter.controllers', [])
     $scope.accel.z = accel.z;
     $scope.accel.timestamp = accel.timestamp; 
     alert($scope.accel);
-  }, onError);
+  }, function(error){
+    alert(error);
+  });
     $timeout(getAccelData(), 500);
    };
 })
